@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import './Dashboard.css';
 import {Link}  from "react-router-dom";
+// import Header from '../../components/Header';
 // import {useHistory} from 'react-router-dom';
 const Dashboard = () => {
   const[course,setCourse]=useState({})
 
   const getCourse=()=>{
-fetch('http://localhost:3008/admin')
+fetch('http://localhost:3001/admin')
 .then(res=>res.json())
 .then(result=>{
   setCourse(result)
@@ -31,14 +33,15 @@ fetch('http://localhost:3008/admin')
       })
     }
   
-   fetch("http://localhost:3008/admin",delOptions)
+   fetch("http://localhost:3001/admin",delOptions)
   .then(alert('user deleted'))
   .then(res=>getCourse())
   }
   
   return (
     <>
-    <div>
+  
+    <div className='dashboard'>
       <h3>Course List</h3>
       <table class="table">
   <thead>
@@ -51,8 +54,9 @@ fetch('http://localhost:3008/admin')
   </thead>
       
         <tbody>
-         {/* {JSON.stringify(course)}  */}
-         {course.map((item)=>{
+         {/* {JSON.stringify(course)} 
+          */}
+         {course.length>0 ? course?.map((item)=>{
           return(
           
             
@@ -60,12 +64,12 @@ fetch('http://localhost:3008/admin')
             <td>{item.courses}</td>
             <td>{item.coursesDuration}</td>
             <td><button onClick={()=>deleteItem(item.name)}>Delete</button></td>
-            {/* <td><Link to="/editcourse"><button onClick={null}>edit</button></Link></td> */}
+            <td><button onClick={null}>edit</button></td>
             </tr>
             
             
           )
-         })} 
+         }): <h1>loader</h1>} 
          </tbody>
       
 </table>

@@ -6,20 +6,34 @@ import Register from './container/Register';
 import Dashboard from './Pages/Dashboard/Dashboard.js';
 import Addcourse from './Pages/Course/Addcourse.js';
 import Editcourse from './Pages/Course/Editcourse';
+import Header from './components/Header';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from './components/Navbar';
 function App() {
   return (
 <>
-    <Router>
-      <Dashboard/>
-      {/* <Addcourse /> */}
-    </Router>
 
-  {/* <Addcourse/> */ }
-  {/* <Login/> */ }
-  {/* <Register/> */ }
-  {/* <Router><Routes><Route path="/editcourse" element={<Editcourse/>}></Route></Routes></Router> */ }
-  {/* <div> <Dashboard/> </div> */ }
+{/* <div><Navbar/></div> */}
+
+      {/* <div>
+        <Routes>
+          <Route path='/' element={<Dashboard />}></Route>
+          <Route path='/addcourse' element={<Addcourse />}></Route>
+          <Route path='/editcourse' element={<Editcourse />}></Route>
+        </Routes>
+      </div>  */}
+      {/* <Dashboard/> */}
+      {/* <Addcourse /> */}
+
+
+
+  <div>
+    <Routes>
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/register' element={<Register/>}></Route>
+    </Routes>
+  </div>
+  
 
 
 </>

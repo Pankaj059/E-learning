@@ -10,19 +10,20 @@ const Register = () => {
 
 
     const handleRegister=()=>{
- const options={
-    method:'POST',
-    headers:{'content-type':'application/json'},
-    body:JSON.stringify({
-      "name":getName,
-      "gmail":gmail,
-      "password":pword
-    })
-  }
- fetch("http://localhost:3008/register",options)
- .then(alert('user Registered'))
-//   .then(res=>getUsers())
-}
+        const options = {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              "name": getName,
+              "gmail": gmail,
+              "password":pword
+            })
+          }
+          fetch("http://localhost:3001/register", options)
+            .then(alert('user registered'))
+            
+        }
+
 
     return (
 <>
@@ -43,7 +44,8 @@ const Register = () => {
                 <div className="mb-3">
                     <input type="text" class="form-control" placeholder="Repeat Your Password"  ></input>
                 </div>
-                <button onClick={() => handleRegister()}>Register</button>
+                <div className='mb-3'><button onClick={() => handleRegister()}>Register</button></div>
+                
             </div>
     
       <div className='login-link'>

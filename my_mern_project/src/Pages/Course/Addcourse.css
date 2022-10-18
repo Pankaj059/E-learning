@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.mb-3{
+    text-align: center;
+    position: relative;
+    top:40px;
+    
+}
+.con{
+    text-align: center;
+    margin:0 auto;
+    width:30%;
+    border:1px solid grey;
+    position: relative;
+    top:30px;
+    height:300px;
+    border-radius: 5px;
+    background: #508BFC;
+   color:#fff;
+}
+.btn{
+    justify-items: center;
+    position:relative;
+    top:40px;
+    width: 200px;
+    height:40px;
+    background:linear-gradient(to right, #16BFFD 0%, #CB3066  51%, #16BFFD  100%);
+    border-style: solid;
+    border-radius: 5px;
+}
