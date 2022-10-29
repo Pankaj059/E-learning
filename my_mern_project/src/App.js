@@ -7,37 +7,38 @@ import Dashboard from './Pages/Dashboard/Dashboard.js';
 import Addcourse from './Pages/Course/Addcourse.js';
 import Editcourse from './Pages/Course/Editcourse';
 import Header from './components/Header';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navbar from './components/Navbar';
 function App() {
   return (
-<>
+    <>
 
-{/* <div><Navbar/></div> */}
+      <div><Navbar /></div>
 
-      {/* <div>
+      <div>
         <Routes>
-          <Route path='/' element={<Dashboard />}></Route>
-          <Route path='/addcourse' element={<Addcourse />}></Route>
-          <Route path='/editcourse' element={<Editcourse />}></Route>
+          <Route exact path='/' element={<Dashboard />}></Route>
+            <Route path='/addcourse' element={<Addcourse />}></Route>
+            <Route path='/editcourse' element={<Editcourse />}></Route>
         </Routes>
-      </div>  */}
-      {/* <Dashboard/> */}
-      {/* <Addcourse /> */}
+      </div>
+
+
+      {/* <Addcourse/> */}
 
 
 
-  <div>
-    <Routes>
-      <Route path='/login' element={<Login/>}></Route>
-      <Route path='/register' element={<Register/>}></Route>
-    </Routes>
-  </div>
-  
+      <div>
+        <Routes>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+        </Routes>
+      </div>
 
 
-</>
-   
+
+    </>
+
   );
 }
 

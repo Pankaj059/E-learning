@@ -1,46 +1,69 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
+import { Modal, Row, Col, Form } from 'react-bootstrap'
+import { FaGlasses } from 'react-icons/fa'
 
-const Editcourse = () => {
-const [editCourse,setEditCourse]=useState({})
-const[show,setShow]=useState(false)
-//     const push = () => {
-//   const updateOptions = {
-//     method: 'PUT',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify({
-//       "courses": 
-//       "coursesDuration": 
-//     })
-//   }
-//   fetch("http://localhost:3008/admin", updateOptions)
-//     .then(res => {
-//       alert("course updated")
-//     })
-// }
+const Editcourse = (props) => {
+
+  const [editCourse, setEditCourse] = useState({})
+  const [showEdit, setShowEdit] = useState(false)
+
+
+  //     const push = () => {
+  //   const updateOptions = {
+  //     method: 'PUT',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({
+  //       "courses": 
+  //       "coursesDuration": 
+  //     })
+  //   }
+  //   fetch("http://localhost:3008/admin", updateOptions)
+  //     .then(res => {
+  //       alert("course updated")
+  //     })
+  // }
+
+  const show = () => {
+    setShowEdit(true)
+    setEditCourse(props.editItem)
+  }
+
+  const close = () => {
+    setShowEdit(FaGlasses)
+  }
 
   return (
-    <div>
-       {/* <Button onClick={handleOpen}>Edit</Button>
-<Modal
-  open={open}
-  onClose={handleClose}
-  aria-labelledby="modal-modal-title"
-  aria-describedby="modal-modal-description"
->
-  <Box sx={style}>
-    <Typography id="modal-modal-title" variant="h6" component="h2">
-      Text in a modal
-    </Typography>
-    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-      Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-    </Typography>
-  </Box>
-</Modal> */}
- <div class="mb-3">
-  <h5>hello there</h5>
-      {/* <button onClick={() =>  push() }>Update</button> */}
-    </div>
-    </div>
+    <>
+      <div>
+        <button onClick={show}>Edit</button>
+      </div>
+      <Modal show={showEdit} onHide={close}>
+        <Modal.Title style={{ background: "blue", color: "white" }}>
+          Edit Course
+        </Modal.Title>
+        <Modal.Body>
+          <Form>
+            <Form.Group as={Row}>
+              <Form.Label>Course Name :</Form.Label>
+              <Col>
+                <Form.Control type='text'></Form.Control>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label>Course Duration :</Form.Label>
+              <Col>
+                <Form.Control type='text'></Form.Control>
+              </Col>
+            </Form.Group>
+            <Modal.Footer>
+              <button>Update</button>
+              <button onClick={close}>Close</button>
+            </Modal.Footer>
+          </Form>
+        </Modal.Body>
+      </Modal>
+
+    </>
   )
 }
 

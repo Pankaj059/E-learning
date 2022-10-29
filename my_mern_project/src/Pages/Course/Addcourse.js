@@ -1,24 +1,19 @@
 import React from 'react';
 import {changeCourseName, changeCourseDuration} from "./addcourse.slice";
 import {useDispatch, useSelector} from "react-redux";
-// import { useState} from 'react';
 import './Addcourse.css';
-
-// const Addcourse = () => {
-//   const [coursesName, setCoursesName] = useState('')
-//   const [coursesDuration, setCoursesDuration] = useState('')
   
   const Addcourse = () => {
     const dispatch = useDispatch();
     const { coursesName ,courseDuration} = useSelector((state) => state.course);
   
-    const cname = () => {
-      dispatch(changeCourseName());
+    const cname = (v2) => {
+      dispatch(changeCourseName(v2));
     };
 
     
-    const cduration= () => {
-      dispatch(changeCourseDuration());
+    const cduration= (value) => {
+      dispatch(changeCourseDuration(value));
     };
 
   const addItems = () => {
@@ -26,12 +21,12 @@ import './Addcourse.css';
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        "courses": coursesName,
-        "courseDuration": courseDuration
+      courses: coursesName,
+        coursesDuration: courseDuration
       })
     }
     fetch("http://localhost:3001/admin", options)
-      .then(alert('user added'))
+      // .then(alert('user added'))
       
   }
 
@@ -39,8 +34,11 @@ import './Addcourse.css';
 return (
   <div>
     <form>
+    <p className='head3'>ADD COURSE DETAILS</p>
       <div className='con'>
+
     <div class="mb-3">
+      
       <label for="exampleFormControlInput1" class="form-label">Enter course Name</label>
       <input type="text" placeholder="coursename" onKeyUp={(e) => cname(e.target.value)}></input>
     </div>

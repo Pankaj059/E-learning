@@ -1,67 +1,50 @@
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { SidebarData } from './SidebarData';
 import './Navbar.css';
-const { Header, Sider, Content } = Layout;
-const Navbar = () => {
-  const [collapsed, setCollapsed] = useState(false);
+import { IconContext } from 'react-icons';
+
+function Navbar() {
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
+
   return (
-    <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
-            },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
-            },
-          ]}
-        />
-      </Sider>
-      <Layout className="site-layout">
-        <Header
-          className="site-layout-background"
-          style={{
-            padding: 0,
-          }}
-        >
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-            className: 'trigger',
-            onClick: () => setCollapsed(!collapsed),
-          })}
-        </Header>
-        <Content
-          className="site-layout-background"
-          style={{
-            margin: '24px 16px',
-            padding: 24,
-            minHeight: 280,
-          }}
-        >
-          Content
-        </Content>
-      </Layout>
-    </Layout>
+    <>
+   
+      <IconContext.Provider value={{ color: '#fff' }}>
+        <div className='navbar'>
+         
+          <Link to='#' className='menu-bars'>
+            <FaIcons.FaBars onClick={showSidebar} />
+          </Link>
+          <h3>E-learning</h3>
+        </div>
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showSidebar}>
+            <li className='navbar-toggle'>
+              <Link to='#' className='menu-bars'>
+                <AiIcons.AiOutlineClose />
+              </Link>
+            </li>
+            {SidebarData.map((item, index) => {
+              return (
+              
+                <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </IconContext.Provider>
+    </>
   );
-};
+}
+
 export default Navbar;

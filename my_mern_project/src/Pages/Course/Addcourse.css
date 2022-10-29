@@ -8,27 +8,48 @@
     text-align: center;
     position: relative;
     top:40px;
+    text-align:center;
+    
     
 }
 .con{
     text-align: center;
     margin:0 auto;
-    width:30%;
+    width:50%;
     border:1px solid grey;
     position: relative;
-    top:30px;
+    top:100px;
     height:300px;
     border-radius: 5px;
-    background: #508BFC;
-   color:#fff;
+   box-shadow:black;
+    background: #51E2F5;
+   /* color:#fff; */
 }
 .btn{
     justify-items: center;
     position:relative;
     top:40px;
+    left:50px;
     width: 200px;
     height:40px;
     background:linear-gradient(to right, #16BFFD 0%, #CB3066  51%, #16BFFD  100%);
     border-style: solid;
     border-radius: 5px;
 }
+.head3{
+    position: absolute;
+    color:black;
+    left:700px;
+    top:150px;
+    text-align: center;
+    align-items: center;
+}
+.form-label{
+    right:50px;
+    padding:20px;
+}
+input{
+    border-radius: 5%;
+    border:none;
+}
+
