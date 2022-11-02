@@ -13,7 +13,7 @@ const env=require("dotenv").config();
 const courses=require('../src/models/Courseschema')
 const users=require('../src/models/Usersschema')
 const multer = require('multer')
-// import "../../my_mern_project/src/UploadedImages";
+// import '../../my_mern_project/src/Uploads/';
 
 
 const storage = multer.diskStorage({
@@ -28,9 +28,9 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage }).single("avatar");
 
 //for uploading images//
-app.post('/profile', upload, function (req, res, next) {
-    console.log(req.file)
-  })
+// app.post('/profile', upload, function (req, res, next) {
+//     console.log(req.file)
+//   })
 
 app.post("/register", async(req, res) => {
     try{

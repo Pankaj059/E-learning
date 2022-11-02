@@ -66,6 +66,7 @@ const Addcourse = () => {
 
         </div>
  
+ 
       <div><input placeholder="type" type="file" name="avatar" onChange={handleFile} /></div>
 
     </div>
