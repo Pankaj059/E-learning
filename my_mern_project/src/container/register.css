@@ -3,9 +3,7 @@
     color:black;
     bottom:100px;
 }
-.mb3{
-    
-}
+
 .body{
 
     /* position:absolute; */
@@ -14,4 +12,8 @@
 .register{
     position:relative;
     top:100px;
+}
+.para{
+    margin-left: 200px;
+
 }

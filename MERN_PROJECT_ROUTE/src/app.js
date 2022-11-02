@@ -12,6 +12,25 @@ require('./db/mongoose')()
 const env=require("dotenv").config();
 const courses=require('../src/models/Courseschema')
 const users=require('../src/models/Usersschema')
+const multer = require('multer')
+// import "../../my_mern_project/src/UploadedImages";
+
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'Uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    }
+  })
+  
+  const upload = multer({ storage: storage }).single("avatar");
+
+//for uploading images//
+app.post('/profile', upload, function (req, res, next) {
+    console.log(req.file)
+  })
 
 app.post("/register", async(req, res) => {
     try{
@@ -33,7 +52,7 @@ app.post("/register", async(req, res) => {
     }
     
 })
-app.post("/login",async(req,res)=>{
+app.post("/login",async (req,res)=>{
     try{
         const user = await users.find({name:req.body.name})
          if(user.length>0){
@@ -69,7 +88,10 @@ app.get("/admin", async(req,res) => {
     const courseList = await courses.find({})
     res.json(courseList)
 })
-app.post("/admin", async(req, res) => {
+app.post("/admin",upload, async(req, res, next) => {
+
+    req.body.courseImage= req.file.filename;
+    console.log(req.body)
     await courses.create(req.body)
     .then(result=>{
         res.json({
@@ -89,6 +111,22 @@ app.delete("/admin", async(req, res) => {
       })
      })
   })
+
+
+  app.put("/admin", async (req, res) => {
+    try{
+       courses.findOneAndUpdate({coursename:req.body.coursename},{$set:{isWinner:true}})   
+       .then(result => {
+           res.json({
+           message:"info updated",
+           course: result
+               })
+           })
+       }
+       catch(err){
+           console.log(err)
+       }
+})
 
 
 app.listen(process.env.port, () => {

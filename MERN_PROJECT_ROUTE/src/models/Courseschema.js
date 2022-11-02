@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 const CourseSchema = new mongoose.Schema({
     courses: { type: String, required: true },
-    coursesDuration: { type: String, required: true }
+    coursesDuration: { type: String, required: true },
+    courseImage:{type:String,required:true}
   
 }, {
     collection: 'courses'

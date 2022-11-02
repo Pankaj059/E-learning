@@ -1,3 +1,9 @@
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
 .btn{
     right:400px;
     top:100px;
@@ -7,4 +13,21 @@
     padding:1rem 2rem;
     height:1rem;
     position:relative;
+}
+/* .form-body p-4 rounded{
+    background-image: url("../Images/background.jpg") important!;
+} */
+.registration-body{
+    background-image: url("../Images/bg.webp");
+    background-size: cover;
+    height:500px;
+}
+
+.mb-3{
+    color:#fff;
+    
+}
+.para{
+    color:#fff;
+    margin-left: 200px;
 }

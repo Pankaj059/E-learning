@@ -12,6 +12,7 @@
     border:1px solid rosybrown;
     text-align: left;
 
+
 }
 .header{
 
@@ -20,3 +21,12 @@
     color:green;
 
 }
+
+/* .container{
+    
+        background-image: url("./dashboard.jpg");
+        background-size: cover;
+        height:700px;
+        width:1500px;
+    
+} */

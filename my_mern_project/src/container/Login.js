@@ -18,7 +18,11 @@ const Login = () => {
         password: Yup.string()
             .required("* Password is Required!")
     })
-
+    const linkStyle = {
+        margin: "1rem",
+        textDecoration: "none",
+        color: 'orange'
+      };
     return (
 
         <div className="registration-body">
@@ -77,8 +81,10 @@ const Login = () => {
                             </Form.Group>
                             <Button className="btn " variant="outline-primary" size="sm" type="submit" disabled={isSubmitting} style={{ position: "relative", left: "40rem", marginTop: "10px" }}>SIGN IN</Button>
                             <Form.Text className="text-muted" style={{ position: "relative", top: "2.5rem", right: "2rem" }}>
-                                Already Have Account ? <Link to="/register">REGISTER</Link>
+                               <p className='para'>Dont Have  A Account ? <Link to="/register" style={linkStyle}>REGISTER</Link></p> 
                             </Form.Text>
+                            <div><input placeholder="type" type="file" name="avatar"  /></div>
+    
                         </Form>
                     )}
                 </Formik>

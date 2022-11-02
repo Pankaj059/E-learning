@@ -4,6 +4,8 @@ import './Dashboard.css';
 import { Link } from "react-router-dom";
 // import Header from '../../components/Header';
 import Editcourse from '../Course/Editcourse';
+// import "../../UploadedImages"
+// import "../../../../MERN_PROJECT_ROUTE/Uploads"
 
 const Dashboard = () => {
   const [course, setCourse] = useState({})
@@ -37,7 +39,7 @@ const Dashboard = () => {
   return (
     <>
 
-      <div className='dashboard'>
+      <div className='container'>
         <h3 className='header'>Course List</h3>
         <table class="table">
           <thead>
@@ -53,12 +55,14 @@ const Dashboard = () => {
             {/* {JSON.stringify(course)} 
           */}
             {course.length > 0 ? course?.map((item) => {
+              console.log(item)
               return (
 
 
                 <tr key={item.id}>
                   <td>{item.courses}</td>
                   <td>{item.coursesDuration}</td>
+                  <td><img src={require('../../../../../../MERN_PROJECT_ROUTE/Uploads/')} alt="img"></img></td>
                   <td><button onClick={() => deleteItem(item.courses)}>Delete</button></td>
                   <td>
                     <div>
