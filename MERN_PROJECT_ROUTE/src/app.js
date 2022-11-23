@@ -12,13 +12,14 @@ require('./db/mongoose')()
 const env=require("dotenv").config();
 const courses=require('../src/models/Courseschema')
 const users=require('../src/models/Usersschema')
+const students=require('../src/models/Studentschema')
 const multer = require('multer')
-// import '../../my_mern_project/src/Uploads/';
+
 
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'Uploads/')
+      cb(null, '../my_mern_project/src/Uploads')
     },
     filename: function (req, file, cb) {
       cb(null, file.originalname);
@@ -127,7 +128,14 @@ app.delete("/admin", async(req, res) => {
            console.log(err)
        }
 })
-
+app.post("/student",async (req,res)=>{
+    await students.create(req.body)
+    .then(result=>{
+        res.json({
+            detail:result
+        })
+    })
+})
 
 app.listen(process.env.port, () => {
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { MdDashboard } from "react-icons/md";
 import { MdPeopleAlt } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
-import * as FaIcons from 'react-icons/fa';
+import { FaSearch  } from "react-icons/fa";
 import * as IoIcons from 'react-icons/io';
 
 export const SidebarData = [
@@ -26,9 +26,9 @@ export const SidebarData = [
   },
 
   {
-    title: 'Lessons',
-    path: '/lessons',
-    icon: <FaIcons.FaEnvelopeOpenText />,
+    title: 'Search ',
+    path: '/search',
+    icon: <FaSearch />,
     cName: 'nav-text'
   },
   {

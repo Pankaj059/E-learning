@@ -56,7 +56,7 @@ const Register = () => {
                                 .then(setSubmitting(false))
                                 .then(res => res.json())
                                 .then(result => {
-                                    navigate('/')
+                                    navigate('/login')
                                 })
                         }, 500);
 

@@ -1,0 +1,12 @@
+.search{
+    position: relative;
+    text-align: center;
+    margin-right: 10px;
+    top:100px;
+}
+.list{
+    text-align: center;
+    top:100px;
+    right:50px;
+    position:relative;
+}

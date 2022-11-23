@@ -83,7 +83,7 @@ const Login = () => {
                             <Form.Text className="text-muted" style={{ position: "relative", top: "2.5rem", right: "2rem" }}>
                                <p className='para'>Dont Have  A Account ? <Link to="/register" style={linkStyle}>REGISTER</Link></p> 
                             </Form.Text>
-                            <div><input placeholder="type" type="file" name="avatar"  /></div>
+                          
     
                         </Form>
                     )}

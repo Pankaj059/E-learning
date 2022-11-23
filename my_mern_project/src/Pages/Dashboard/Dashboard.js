@@ -4,7 +4,7 @@ import './Dashboard.css';
 import { Link } from "react-router-dom";
 // import Header from '../../components/Header';
 import Editcourse from '../Course/Editcourse';
-// import '../../../../MERN_PROJECT_ROUTE/Uploads'
+// import '../../Uploads
 
 const Dashboard = () => {
   const [course, setCourse] = useState({})
@@ -46,6 +46,8 @@ const Dashboard = () => {
 
               <th scope="col">Course Name</th>
               <th scope="col">Course Duration</th>
+              <th scope="col">Course Cost</th>
+              <th scope="col">Course Description</th>
               <th scope="col">Course Image</th>
 
             </tr>
@@ -54,17 +56,19 @@ const Dashboard = () => {
           <tbody>
             {/* {JSON.stringify(course)} 
           */}
-            {course.length > 0 ? course?.map((item) => {
+            {course.length > 0 ? course.map((item) => {
               // console.log('../../../../MERN_PROJECT_ROUTE/Uploads/' + item.courseImage)
-              const imgPath = '../../../../MERN_PROJECT_ROUTE/Uploads/' + item.courseImage
-              console.log(imgPath)
+              // const imgPath = '../../Uploads' + item.courseImage
+              // console.log(imgPath)
               return (
 
 
                 <tr key={item.id}>
                   <td>{item.courses}</td>
                   <td>{item.coursesDuration}</td>
-                  <td><img src={require(imgPath)} alt="avatar" width="50px" height="50px" /></td>
+                  <td>{item.courseCost}</td>
+                  <td>{item.courseDescription}</td>
+                  <td><img src={require('../../Uploads/' + item.courseImage)} alt="avatar" width="50px" height="50px" /></td>
                   <td><button onClick={() => deleteItem(item.courses)}>Delete</button></td>
                   <td>
                     <div>

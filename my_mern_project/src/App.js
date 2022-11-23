@@ -1,5 +1,4 @@
 import React from 'react';
-// import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Login from './container/Login';
 import Register from './container/Register';
@@ -9,6 +8,8 @@ import Editcourse from './Pages/Course/Editcourse';
 import Header from './components/Header';
 import { Route, Routes } from "react-router-dom";
 import Navbar from './components/Navbar';
+import Homepage from './Pages/Users/Homepage';
+import Search from './Pages/Search/Search';
 function App() {
   return (
     <>
@@ -18,23 +19,14 @@ function App() {
       <div>
         <Routes>
           <Route exact path='/' element={<Dashboard />}></Route>
-            <Route path='/addcourse' element={<Addcourse />}></Route>
-            <Route path='/editcourse' element={<Editcourse />}></Route>
-        </Routes>
-      </div>
-
-
-      {/* <Addcourse/> */}
-
-
-
-      <div>
-        <Routes>
+          <Route path='/addcourse' element={<Addcourse />}></Route>
+          <Route path='/editcourse' element={<Editcourse />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
+          <Route path='/homepage' element={<Homepage/>}></Route>
+          <Route path='/search' element={<Search/>}></Route>
         </Routes>
       </div>
-
 
 
     </>
