@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import "./Homepage.css"
 
+
 const Homepage = () => {
     const [course, setCourse] = useState([])
 
@@ -32,7 +33,7 @@ const Homepage = () => {
                             component="img"
                             alt="green iguana"
                             height="140"
-                            // image src={require('../../Uploads/images.jpg' + item.courseImage)}
+                            img src={require('../../Uploads/' + item.courseImage)}
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">

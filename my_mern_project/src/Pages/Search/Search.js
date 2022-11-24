@@ -5,14 +5,14 @@ import './Search.css'
 
 const Search = () => {
 
-    const [search, setSearch] = useState({})
+    const [course, setCourse] = useState([])
     const [name, setName] = useState('')
 
     const getCourse = () => {
         fetch('http://localhost:3001/admin')
             .then(res => res.json())
             .then(result => {
-                setSearch(result)
+                setCourse(result)
             })
     }
     useEffect(() => {
@@ -24,28 +24,30 @@ const Search = () => {
 
     return (
         <>
+        {JSON.stringify(course)}  
             <div className="search">
                 <h1 className='head-text'>Search Courses</h1>
 
                 <input type="text" placeholder="search" onKeyUp={keyTyped}></input>
-            </div>
-            <div className='list'>
-                <li>{name}</li>
-            </div>
-        {/* <div className="cat">
-        {courses.map((item) => {
-            item.courses == search ?
-            return (
-                <div>
-                    <li>{courses}</li>:<h3>course not found</h3>
-                </div>
-            )
-        })
-    }
-    </div> */}
+</div>
+                      
+            <div className="cat">
+               
+                {course.filter((item=>item.courses.toLowerCase().includes(name)).map((item) => {
+                    return (
+                        <div>
+                            <ul>
+                                <li>{item.courses}</li>
+                            </ul>
 
-    </>
-  )
+                        </div>
+                    )
+                }))
+                }
+            </div>
+
+        </>
+    )
 }
 
 export default Search
