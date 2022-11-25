@@ -23,9 +23,12 @@ const Homepage = () => {
         getCourse()
     }, [])
     return (
-        <div className='home'>
+        <>
+        <div>
               {/* {JSON.stringify(course)}  */}
-         
+         <h2 className='title'> Available Courses</h2>
+         </div>
+         <div className='home'>
             {course.map((item) => {
                 return (
                     <Card sx={{ width: 300 ,height: 400}}>
@@ -46,15 +49,15 @@ const Homepage = () => {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small">Share</Button>
-                            <Button size="small">Learn More</Button>
+                            <Button size="small">Enroll Now</Button>
+                            <Button size="small"> More</Button>
                         </CardActions>
                     </Card>
 
                  )
             })} 
         </div>
-
+</>
     )
 }
 
